@@ -9,40 +9,43 @@ import TravelPurpose from "./components/TravelPurposePage/TravelPurpose/TravelPu
 import Payment from "./components/PaymentPage/Payment/Payment";
 import Authentication from "./components/AuthenticationPage/Authentication/Authentication";
 import NotFound from "./components/NotFound/NotFound";
+import Auth0ProviderWithHistory from "./auth0Provider";
 
 function App() {
   return (
-    <div>
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/room-selection">
-            <RoomSelection />
-          </Route>
-          <Route path="/room-details">
-            <RoomDetails></RoomDetails>
-          </Route>
-          <Route path="/booking-agreement">
-            <BookingAgreement />
-          </Route>
-          <Route path="/travel-purpose">
-            <TravelPurpose />
-          </Route>
-          <Route path="/payment">
-            <Payment />
-          </Route>
-          <Route path="/login">
-            <Authentication />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <Auth0ProviderWithHistory>
+      <div>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/room-selection">
+              <RoomSelection />
+            </Route>
+            <Route path="/room-details">
+              <RoomDetails></RoomDetails>
+            </Route>
+            <Route path="/booking-agreement">
+              <BookingAgreement />
+            </Route>
+            <Route path="/travel-purpose">
+              <TravelPurpose />
+            </Route>
+            <Route path="/payment">
+              <Payment />
+            </Route>
+            <Route path="/login">
+              <Authentication />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </Auth0ProviderWithHistory>
   );
 }
 

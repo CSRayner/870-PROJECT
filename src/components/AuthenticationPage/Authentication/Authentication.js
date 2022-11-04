@@ -10,6 +10,7 @@ const Authentication = ({ userLogin, userLogOut }) => {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [hasAccount, setHasAccount] = useState(false);
@@ -48,7 +49,7 @@ const Authentication = ({ userLogin, userLogOut }) => {
     clearErrors();
     fire
       .auth()
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password, phoneNumber)
       .catch((err) => {
         switch (err.code) {
           case "auth/email-already-in-use":
@@ -93,6 +94,8 @@ const Authentication = ({ userLogin, userLogOut }) => {
           setEmail={setEmail}
           password={password}
           setPassword={setPassword}
+          phoneNumber={phoneNumber}
+          setPhoneNumber={setPhoneNumber}
           handleLogin={handleLogin}
           handleSignup={handleSignup}
           hasAccount={hasAccount}
